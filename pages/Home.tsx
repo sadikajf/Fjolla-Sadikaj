@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowRight, CloudLightning, Server, Shield, Activity, GitBranch } from 'lucide-react';
 import { NavItem } from '../types';
+import { PROFILE } from '../data';
 
 const Home: React.FC = () => {
   return (
@@ -14,19 +15,18 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-8">
             <span className="flex h-2 w-2 rounded-full bg-cyan-400 mr-2 animate-pulse"></span>
-            System Status: Operational
+            System Status: {PROFILE.status}
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-            Automating the <br/>
+            {PROFILE.tagline.split(' ').slice(0, 2).join(' ')} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Future of Infrastructure
+              {PROFILE.tagline.split(' ').slice(2).join(' ')}
             </span>
           </h1>
           
           <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed">
-            Cloud Native Engineer specialized in building scalable, resilient, and secure infrastructure. 
-            Transforming code into production-ready environments.
+            {PROFILE.heroDescription}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

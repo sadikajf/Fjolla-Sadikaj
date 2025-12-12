@@ -5,6 +5,7 @@ import TerminalChat from './components/TerminalChat';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import About from './pages/About';
+import { PROFILE } from './data';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -18,7 +19,7 @@ const ScrollToTop = () => {
 const Footer: React.FC = () => (
   <footer className="bg-slate-950 border-t border-slate-900 py-8 mt-auto">
     <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-      <p>&copy; {new Date().getFullYear()} Cloud_Eng Portfolio. Deployed via GitHub & Cloudflare.</p>
+      <p>&copy; {new Date().getFullYear()} {PROFILE.name} Portfolio. Deployed via GitHub & Cloudflare.</p>
       <p className="mt-2 text-xs">Powered by React & Gemini AI</p>
     </div>
   </footer>

@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Terminal as TerminalIcon, Minimize2, Maximize2, Loader2, RefreshCw } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { sendMessageToGemini } from '../services/geminiService';
+import { PROFILE } from '../data';
 
 const TerminalChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Initialize system...\nTarget: DevOps Portfolio.\nStatus: Online.\n\nHello! I am the AI assistant. Ask me about my cloud skills, Terraform experience, or Kubernetes projects.' }
+    { role: 'model', text: `Initialize system...\nTarget: ${PROFILE.name} Portfolio.\nStatus: ${PROFILE.status}.\n\nHello! I am the AI assistant. Ask me about my cloud skills, Terraform experience, or Kubernetes projects.` }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);

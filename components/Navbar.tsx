@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Terminal, Cloud } from 'lucide-react';
+import { Menu, X, Cloud } from 'lucide-react';
 import { NavItem } from '../types';
+import { PROFILE } from '../data';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const Navbar: React.FC = () => {
             <div className="flex-shrink-0 text-cyan-400">
               <Cloud className="h-8 w-8 inline-block mr-2" />
               <span className="font-mono font-bold text-lg text-white tracking-tighter">
-                CLOUD_ENG
+                {PROFILE.logoText}
               </span>
             </div>
             <div className="hidden md:block">

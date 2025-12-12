@@ -1,5 +1,6 @@
 import React from 'react';
 import { Terminal, Cpu, Code2, Globe } from 'lucide-react';
+import { PROFILE, SKILLS } from '../data';
 
 const About: React.FC = () => {
   return (
@@ -10,13 +11,10 @@ const About: React.FC = () => {
 
       <div className="prose prose-invert prose-lg mb-12">
         <p className="text-slate-300 leading-relaxed">
-          I am a passionate DevOps Cloud Engineer dedicated to automating the mundane and architecting the extraordinary. 
-          With a strong foundation in Linux systems and a love for cloud-native technologies, I help organizations 
-          build resilient infrastructure that scales effortlessly.
+          {PROFILE.about.intro}
         </p>
         <p className="text-slate-300 leading-relaxed mt-4">
-          My philosophy involves "Everything as Code." If it's not checked into git, it doesn't exist. 
-          I specialize in AWS, Kubernetes, and CI/CD methodologies, constantly learning new tools to improve developer experience.
+          {PROFILE.about.philosophy}
         </p>
       </div>
 
@@ -27,10 +25,12 @@ const About: React.FC = () => {
             Backend & Scripting
           </h3>
           <ul className="space-y-2 text-slate-400">
-            <li className="flex items-center"><span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>Python (Boto3, Flask)</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>Go (Golang)</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>Bash / Shell Scripting</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>TypeScript / Node.js</li>
+            {SKILLS.backend.map((skill, idx) => (
+              <li key={idx} className="flex items-center">
+                <span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>
+                {skill.name}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -40,10 +40,12 @@ const About: React.FC = () => {
             Infrastructure
           </h3>
           <ul className="space-y-2 text-slate-400">
-            <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Terraform / Terragrunt</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Ansible</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Docker & Kubernetes</li>
-            <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Helm Charts</li>
+            {SKILLS.infrastructure.map((skill, idx) => (
+              <li key={idx} className="flex items-center">
+                <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                {skill.name}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -52,12 +54,16 @@ const About: React.FC = () => {
         <h2 className="text-2xl font-bold text-white mb-4">Let's Connect</h2>
         <p className="text-slate-400 mb-6">Currently open to new opportunities and collaborations.</p>
         <div className="flex justify-center space-x-4">
-           <a href="https://github.com" className="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded transition-colors flex items-center">
-             <Code2 className="mr-2 h-4 w-4" /> GitHub
-           </a>
-           <a href="https://linkedin.com" className="px-6 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded transition-colors flex items-center">
-             <Globe className="mr-2 h-4 w-4" /> LinkedIn
-           </a>
+           {PROFILE.social.github && (
+             <a href={PROFILE.social.github} target="_blank" rel="noreferrer" className="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded transition-colors flex items-center">
+               <Code2 className="mr-2 h-4 w-4" /> GitHub
+             </a>
+           )}
+           {PROFILE.social.linkedin && (
+             <a href={PROFILE.social.linkedin} target="_blank" rel="noreferrer" className="px-6 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded transition-colors flex items-center">
+               <Globe className="mr-2 h-4 w-4" /> LinkedIn
+             </a>
+           )}
         </div>
       </div>
     </div>
