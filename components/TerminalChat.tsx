@@ -127,7 +127,7 @@ const TerminalChat: React.FC = () => {
         {isLoading && (
           <div className="text-left">
             <span className="text-green-400 inline-flex items-center gap-2">
-              > Processing <Loader2 className="h-3 w-3 animate-spin" />
+              {'>'} Processing <Loader2 className="h-3 w-3 animate-spin" />
             </span>
           </div>
         )}
