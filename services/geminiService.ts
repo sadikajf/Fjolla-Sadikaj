@@ -23,12 +23,9 @@ If asked about specific projects, mention that they can be found on the 'Project
 export const initializeChat = (): Chat => {
   if (chatSession) return chatSession;
 
-  const apiKey = process.env.API_KEY;
-  if (!apiKey) {
-    throw new Error("API Key not found");
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
+  // Fix: Use process.env.API_KEY directly as per guidelines. 
+  // Assume it is valid and configured.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   chatSession = ai.chats.create({
     model: 'gemini-2.5-flash',
